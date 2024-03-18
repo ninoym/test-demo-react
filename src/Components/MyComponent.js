@@ -24,11 +24,20 @@ class MyComponent extends React.Component {
   };
 
   handleClick(event) {
-    console.log("My name is:", this.state.name);
+    console.log(" random ", Math.floor(Math.random() * 100 + 1));
+    //merge state =>> react class
+    this.setState({
+      name: "RonaldO",
+      age: Math.floor(Math.random() * 100 + 1),
+    });
+
+    // this.setState({
+    //   age: Math.floor(Math.random() * 100 + 1),
+    // });
   }
 
   handleOnMoverOver(event) {
-    console.log(event);
+    // console.log(event);
   }
   // JSX: coding html inside  javascript
   render() {
@@ -36,7 +45,14 @@ class MyComponent extends React.Component {
       <div>
         My name is {this.state.name} and I am {this.state.age} years old.
         <button onMouseOver={this.handleOnMoverOver}>Hover me</button>
-        <button onClick={this.handleClick}>Click Me</button>
+        <button
+          onClick={(event) => {
+            this.handleClick(event);
+          }}
+        >
+          {" "}
+          Click me{" "}
+        </button>
       </div>
     );
   }
