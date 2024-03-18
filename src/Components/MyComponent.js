@@ -17,12 +17,17 @@
 // }
 import React from "react";
 class MyComponent extends React.Component {
+  state = {
+    name: "Anh Dung Tran",
+    address: " Hoi Dan IT",
+    age: 26,
+  };
+
   // JSX: coding html inside  javascript
   render() {
     return (
       <div>
-        Hello World!
-        {Math.random() * 1000}
+        My name is {this.state.name} and I am {this.state.age} years old.{" "}
       </div>
     );
   }
