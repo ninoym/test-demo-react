@@ -23,36 +23,42 @@ class MyComponent extends React.Component {
     age: 26,
   };
 
-  handleClick(event) {
-    console.log(" random ", Math.floor(Math.random() * 100 + 1));
-    //merge state =>> react class
-    this.setState({
-      name: "RonaldO",
-      age: Math.floor(Math.random() * 100 + 1),
-    });
+  // handleClick(event) {
+  //   console.log(" random ", Math.floor(Math.random() * 100 + 1));
+  //   //merge state =>> react class
+  //   this.setState({
+  //     name: "Anh Dung Tran",
+  //     age: Math.floor(Math.random() * 100 + 1),
+  //   });
 
-    // this.setState({
-    //   age: Math.floor(Math.random() * 100 + 1),
-    // });
-  }
+  // }
 
-  handleOnMoverOver(event) {
-    // console.log(event);
-  }
+  // handleOnMoverOver(event) {
+  //   // console.log(event);
+  // }
   // JSX: coding html inside  javascript
+
+  handleOnChangeInput = (event) => {
+    this.setState({
+      name: event.target.value,
+    });
+  };
+
+  handleOnSubmit = (event) => {
+    event.preventDefault();
+    alert("oke la");
+  };
   render() {
     return (
       <div>
         My name is {this.state.name} and I am {this.state.age} years old.
-        <button onMouseOver={this.handleOnMoverOver}>Hover me</button>
-        <button
-          onClick={(event) => {
-            this.handleClick(event);
-          }}
-        >
-          {" "}
-          Click me{" "}
-        </button>
+        <form onSubmit={(event) => this.handleOnSubmit(event)}>
+          <input
+            type="text"
+            onChange={(event) => this.handleOnChangeInput(event)}
+          />
+          <button> Submit </button>
+        </form>
       </div>
     );
   }
