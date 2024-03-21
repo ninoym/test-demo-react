@@ -33,7 +33,6 @@ class UserInFor extends React.Component {
           <input
             placeholder="Enter your name"
             type="text"
-            value={this.state.name}
             onChange={(event) => this.handleOnChangeNameInput(event)}
           />
           <br />

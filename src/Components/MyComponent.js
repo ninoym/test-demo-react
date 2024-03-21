@@ -3,21 +3,21 @@ import UserInFor from "./Userinfor";
 import DisplayInfor from "./DisplayInfor";
 
 class MyComponent extends React.Component {
+  state = {
+    listusers: [
+      { id: 1, name: "Nino", age: 19 },
+      { id: 2, name: "Suu", age: 20 },
+      { id: 3, name: "Thao", age: 23 },
+    ],
+  };
+
   render() {
-    const myAge = 50;
-    const myInfor = [" dm ", " nguvl ", " occho "];
+    // DRY: Don't repeat yourself
     return (
       <div>
         <UserInFor />
         <br></br>
-        <DisplayInfor
-          name="Nino"
-          age={myAge}
-          city="Los Angeles"
-          myInfor={myInfor}
-        />
-        <hr />
-        <DisplayInfor name="Messi" age="30" city=" Miami" />
+        <DisplayInfor listusers={this.state.listusers} />
       </div>
     );
   }
