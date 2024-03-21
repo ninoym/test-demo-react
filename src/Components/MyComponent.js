@@ -1,5 +1,5 @@
 import React from "react";
-import UserInFor from "./Userinfor";
+import AddUserInFor from "./AddUserinfor";
 import DisplayInfor from "./DisplayInfor";
 
 class MyComponent extends React.Component {
@@ -11,11 +11,20 @@ class MyComponent extends React.Component {
     ],
   };
 
+  handleAddNewUser = (userobj) => {
+    console.log("check data>>>", userobj);
+    this.setState({
+      // dung` de update state
+
+      listusers: [userobj, ...this.state.listusers], // add data to array
+    });
+  };
+
   render() {
     // DRY: Don't repeat yourself
     return (
       <div>
-        <UserInFor />
+        <AddUserInFor handleAddNewUser={this.handleAddNewUser} />
         <br></br>
         <DisplayInfor listusers={this.state.listusers} />
       </div>
