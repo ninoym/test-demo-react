@@ -1,5 +1,5 @@
-import React from "react";
-import "./DisplayInfor.scss";
+// import React, { useState } from "react";
+// import "./DisplayInfor.scss";
 // import logo from "./../logo.svg";
 
 // class DisplayInfor extends React.Component {
@@ -35,15 +35,29 @@ import "./DisplayInfor.scss";
 //   }
 // }
 
+import React, { useState } from "react";
+import "./DisplayInfor.scss";
+
 const DisplayInfor = (props) => {
   const { listusers } = props;
+  const [isShowHideListUser, setShowHideListUser] = useState(true);
+
+  const handShowHideListUser = () => {
+    setShowHideListUser(!isShowHideListUser);
+  };
 
   return (
     <>
-      {true && (
-        <div className="display-infor-container">
-          {listusers.map((user, index) => {
-            return (
+      <div className="display-infor-container">
+        <div>
+          <span onClick={() => handShowHideListUser()}>
+            {isShowHideListUser ? "Hide list users" : "Show list users"}
+          </span>
+        </div>
+
+        {isShowHideListUser && (
+          <>
+            {listusers.map((user) => (
               <div key={user.id} className={+user.age > 18 ? "green" : "red"}>
                 <div>Name: {user.name}</div>
                 <div>Age: {user.age} </div>
@@ -52,12 +66,10 @@ const DisplayInfor = (props) => {
                   Delete
                 </button>
               </div>
-            );
-
-            //convert string to number use ' + '
-          })}
-        </div>
-      )}
+            ))}
+          </>
+        )}
+      </div>
     </>
   );
 };
