@@ -1,60 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 
-class AddUserInFor extends React.Component {
-  state = {
-    name: "",
-    address: " ",
-    age: "",
+const AddUserInFor = (props) => {
+  const [name, setName] = useState("");
+  const [address, setAdress] = useState("Hanoi");
+  const [age, setAge] = useState("");
+
+  const handleOnChangeNameInput = (event) => {
+    setName(event.target.value);
   };
 
-  handleOnChangeNameInput = (event) => {
-    this.setState({
-      name: event.target.value,
-    });
+  const handleOnChangeAgeInput = (event) => {
+    setAge(event.target.value);
   };
 
-  handleOnChangeAgeInput = (event) => {
-    this.setState({
-      age: event.target.value,
-    });
-  };
-
-  handleOnSubmit = (event) => {
+  const handleOnSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
-    this.props.handleAddNewUser({
+
+    props.handleAddNewUser({
       // truyen` func tu` cha xuong con
       id: Math.floor(Math.random() * 100 + 1) + " - random",
-      name: this.state.name,
-      age: this.state.age,
+      name: setName,
+      age: setAge,
     });
   };
 
-  render() {
-    return (
-      <div>
-        My name is {this.state.name} and I am {this.state.age} years old.
-        <form onSubmit={(event) => this.handleOnSubmit(event)}>
-          <label>your Name : </label>
-          <input
-            placeholder="Enter your name"
-            type="text"
-            onChange={(event) => this.handleOnChangeNameInput(event)}
-          />
-          <br />
-          <label>your Age : </label>
-          <input
-            placeholder="Enter your age"
-            type="number"
-            value={this.state.age}
-            onChange={(event) => this.handleOnChangeAgeInput(event)}
-          />
-          <br />
-          <button> Submit </button>
-        </form>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      My name is {name} and I am {age} years old.
+      <form onSubmit={(event) => handleOnSubmit(event)}>
+        <label>your Name : </label>
+        <input
+          placeholder="Enter your name"
+          type="text"
+          onChange={(event) => handleOnChangeNameInput(event)}
+        />
+        <br />
+        <label>your Age : </label>
+        <input
+          placeholder="Enter your age"
+          type="number"
+          value={age}
+          onChange={(event) => handleOnChangeAgeInput(event)}
+        />
+        <br />
+        <button> Submit </button>
+      </form>
+    </div>
+  );
+};
 
 export default AddUserInFor;
