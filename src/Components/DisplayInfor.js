@@ -3,9 +3,29 @@ import "./DisplayInfor.scss";
 // import logo from "./../logo.svg";
 
 class DisplayInfor extends React.Component {
-  state = {
-    isShowListUser: true,
-  };
+  constructor(props) {
+    console.log(">>>call coonstructer:1");
+    super(props);
+    this.state = {
+      isShowListUser: true,
+    };
+  }
+
+  componentDidMount() {
+    console.log(">>call me component did mount ");
+    setTimeout(() => {
+      document.title = "Suuu";
+    }, 3000);
+  }
+
+  componentDidUpdate(PrevProps, prevState, snapshot) {
+    console.log(">>call me component did update", this.props, PrevProps);
+    if (this.props.listusers !== PrevProps.listusers) {
+      if (this.props.listusers.length === 5) {
+        alert("vai loz");
+      }
+    }
+  }
 
   handleShowHide = () => {
     this.setState({
@@ -14,6 +34,7 @@ class DisplayInfor extends React.Component {
   };
   // template + logic js
   render() {
+    console.log(">>call me render 3");
     // truyen` thuoc tinh tu cha xuong con
     // destructering : lay ra cac phan tu cua this.props
     const { listusers } = this.props;
