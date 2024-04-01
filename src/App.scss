@@ -1,6 +1,7 @@
 body {
-  padding: 0px;
-  margin: 0;
+  padding-left: 32px;
+  padding-right: 32px;
+  margin: 0%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -9,10 +10,50 @@ body {
 }
 
 .app-container {
+  .homepage-container {
+    .homepage-content {
+      padding: 100px;
+      position: relative;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px; // khoang cach moi dong = 20px
+      .Title-1 {
+        font-size: 50px;
+        font-weight: 600px;
+      }
+      .Title-2 {
+        font-size: 24px;
+      }
+      .Title-3 {
+        button {
+          border-radius: 5px;
+          height: 40px;
+          background-color: #303030;
+          color: white;
+          margin-right: 15px;
+          padding: 0 15px;
+          border: 1px solid #535353;
+          &:hover {
+            background: black;
+            color: white;
+          }
+        }
+      }
+    }
+  }
   .header-container {
     .navbar-nav {
+      margin-right: 20px;
+      padding-top: 24px;
       z-index: 10;
-      opacity: 0.5;
+      // opacity: 0.5;
+      background-color: rgba(
+        0,
+        0,
+        0,
+        0
+      ) !important; // red , green, black , alpha .. alpha = opacity
       .nav-link {
         &.active {
           color: aquamarine;
@@ -27,4 +68,35 @@ video {
   margin-top: 70px;
   right: auto;
   width: 150vw;
+}
+
+.btn-login {
+  height: 40px;
+  border-radius: 5px;
+  margin-right: 15px;
+  padding: 0 15px;
+  border: 1px solid #535353;
+}
+
+.btn-signup {
+  height: 40px;
+  border-radius: 5px;
+  margin-right: 15px;
+  padding: 0 15px;
+  border: 1px solid #535353;
+  &:hover {
+    background: black;
+    color: white;
+  }
+}
+
+@media (min-width: 1800px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1820px !important;
+  }
 }

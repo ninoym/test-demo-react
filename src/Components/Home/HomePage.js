@@ -12,8 +12,8 @@ const HomePage = (props) => {
           Get more data—like signups, feedback, and anything else—with forms
           designed to be refreshingly different.
         </div>
-        <div>
-          <button>Get Started</button>
+        <div className="Title-3">
+          <button>Get Started, It's free bro</button>
         </div>
       </div>
     </div>
