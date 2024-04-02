@@ -1,0 +1,8 @@
+.admin-container {
+  display: flex; // xep theo hang ngang
+  .admin-sidebar {
+    .pro-sidebar {
+      height: 100vh !important; // de 100viewhight thi luon bang chieu cao may tinh
+    }
+  }
+}
