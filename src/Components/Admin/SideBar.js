@@ -18,6 +18,8 @@ import {
   FaHeart,
 } from "react-icons/fa";
 import sidebarBg from "../../assets/bg2.jpg";
+import { DiReact } from "react-icons/di";
+import { MdDashboard } from "react-icons/md";
 
 const SideBar = (props) => {
   const { image, collapsed, toggled, handleToggleSidebar } = props;
@@ -43,7 +45,8 @@ const SideBar = (props) => {
               whiteSpace: "nowrap",
             }}
           >
-            Hoi Dan IT
+            <DiReact size={"3em"} color={"00bfff"} />
+            <span>Hoi Dan IT</span>
           </div>
         </SidebarHeader>
 
@@ -51,20 +54,22 @@ const SideBar = (props) => {
           <Menu iconShape="circle">
             <MenuItem
               icon={<FaTachometerAlt />}
-              suffix={<span className="badge red">New</span>}
+              //   suffix={<span className="badge red">New</span>}
             >
               dashboard
             </MenuItem>
-            <MenuItem icon={<FaGem />}> components </MenuItem>
+            {/* <MenuItem icon={<FaGem />}> components </MenuItem> */}
           </Menu>
           <Menu iconShape="circle">
             <SubMenu
-              suffix={<span className="badge yellow">3</span>}
-              icon={<FaRegLaughWink />}
+              //   suffix={<span className="badge yellow">3</span>}
+              //   icon={<FaRegLaughWink />}
+              icon={<FaGem />}
+              title="Features"
             >
-              <MenuItem> 1</MenuItem>
-              <MenuItem> 2</MenuItem>
-              <MenuItem> 3</MenuItem>
+              <MenuItem> Quan ly users</MenuItem>
+              <MenuItem> Quan ly bai quiz</MenuItem>
+              <MenuItem> Quan ly cau hoi</MenuItem>
             </SubMenu>
           </Menu>
         </SidebarContent>
@@ -90,7 +95,7 @@ const SideBar = (props) => {
                   overflow: "hidden",
                 }}
               >
-                viewSource
+                DM ELITE FITNESS
               </span>
             </a>
           </div>
